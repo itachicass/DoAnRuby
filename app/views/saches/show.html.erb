@@ -1,0 +1,67 @@
+<section class="header_text sub">
+    
+                <br>
+                <br>
+                <br>
+    <h2><span>Chi tiet san pham</span></h2>
+</section>
+<section class="main-content" align='center'>
+    <div class="row">
+        <div class = "span3"></div>
+        <div class="span12">
+            <div class="row" id="thongtin">
+                <div class="span5">
+                    <div class="thumbnail" data-fancybox-group="group1" align='center'>
+                    <%= image_tag(@sach.hinhanh, style: 'height:25vw;width:18vw;margin-left:0px;') %>
+                    </div>
+                </div>
+
+                <div class="span4" >
+                    <address>
+                        <strong>Tên sach:</strong> <%= @sach.tensach%><br>
+                        <strong>Ten tac gia:</strong> <span><%=@sach.tacgia%></span><br>
+                        <strong>Nha xuat ban:</strong> <span><%=@sach.nxb%></span><br>
+                        <strong>The loai:</strong> <span><%=@sach.theloai%></span><br>
+                        <strong>So luong con: </strong> <span><%=@sach.soluong%></span>
+                    </address>
+                    <h4><strong>Giá: </strong><%=@sach.dongia%></h4>
+                    <%= link_to "Them vao gio", add_to_cart_path(@sach.id), method: :get, class: 'link'%>
+                    <%= link_to "Mua ngay", donhang_create_path, method: :get, class: 'link'%>
+                </div>
+            
+                
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h3>Hinh anh san pham</h3>
+             <div class="flexslider" >
+               
+                    <ul class="slides">
+                    <% @hinhanh.each do |anh| %>
+                        <li>
+                        <%= image_tag(anh.link, style: 'height:17vw;width:13vw;margin-left:50px;') %>
+                        </li>
+                        
+                        <%end%>
+                    </ul>
+                </div>
+                <br>
+                <br>
+            <div class="row">
+                <div class="span9">
+                    <ul class="nav nav-tabs" id="myTab">
+                        <li class="active"><a href="#home"><h3>Trich dan</h3></a></li>
+                       
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home"><p font-size="20px"><%= @sach.mota%></p></div>
+
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

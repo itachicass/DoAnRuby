@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  makm: 1
+  phantram: 1
+  thoigianBD: 2020-08-06
+  thoigianKT: 2020-08-06
+
+two:
+  makm: 1
+  phantram: 1
+  thoigianBD: 2020-08-06
+  thoigianKT: 2020-08-06

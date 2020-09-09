@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sohd: 1
+  masach: 1
+  makm: 1
+  dongia: 1
+  soluong: 1
+  thanhtien: 1
+
+two:
+  sohd: 1
+  masach: 1
+  makm: 1
+  dongia: 1
+  soluong: 1
+  thanhtien: 1

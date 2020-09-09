@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  masach: 1
+  tensach: MyString
+  tacgia: MyString
+  nxb: MyString
+  dongia: 1
+  soluong: 1
+  hinhanh: MyString
+
+two:
+  masach: 1
+  tensach: MyString
+  tacgia: MyString
+  nxb: MyString
+  dongia: 1
+  soluong: 1
+  hinhanh: MyString

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  masach: 1
+  link: MyString
+
+two:
+  masach: 1
+  link: MyString

@@ -1,0 +1,42 @@
+<div class="span1"></div>
+
+<h3>Gio hang cua ban</h3>
+
+<% if @cart.empty? %>
+
+<p>Khong co san pham nao trong gio</p>
+<%else%>
+
+
+<table >
+<tr>
+<td> Ten san pham </td>
+<td> Hinh hanh </td>
+<td> Don gia <td>
+<td> So luong </td>
+<td> Xem san pham </td>
+<td> Xoa khoi gio </td>
+</tr>
+
+<% @cart.each do |sach| %>
+    <tr>
+         <td> <%= sach['tensach']%> </td>    
+        <td><%= image_tag(sach['hinhanh'], height: '200', width: '100') %> </td>
+        <td> <%=sach['dongia']%></td>
+        <td><%= sach['soluong']%></td>
+        <td>
+        <%= button_to "Xem", chitiet_path(sach['id']) , method: :get%>                                             
+        <%= button_to "Xoa", remove_from_cart_path(sach['id']), method: :delete %></td>
+        
+        
+    </tr>
+    <% end %> 
+    <tr class='total_line'>
+    <td colspan='5'>Tong tri gia</td>
+    <td class='total_cell' colspan='2'><%= @total %></td>
+
+
+</table>
+<%= button_to "Dat hang", order_path, method: :get%>
+
+<% end%>

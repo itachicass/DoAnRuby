@@ -1,0 +1,48 @@
+
+<section class="main-content">
+
+    <div class="row" >  
+    <div class="span2"></div>
+    <div class="span8">    
+    <h4><strong>Danh sach sach moi<strong></h4>
+   
+            <ul class="thumbnails listing-products" id=" productspace">
+            <%if @saches.nil? || @saches.empty?%>%
+            <p> Danh sach trong</p>
+            <%else%>
+            <% @saches.each do |sach| %>
+                <li class="span8">
+                     <div class="thumbnail" data-fancybox-group="group1">
+                        <span class="sale_tag"></span>
+                        <div class="span4">
+                        <%= link_to chitiet_path(id:sach.id) do %>
+                        <%= image_tag(sach.hinhanh, height: '400', width: '200') %>
+                        <% end%>
+                        </div>
+                        <div class="span4">
+                         
+                    </div>
+                        <br />
+                       <address>
+                        <strong>Tên sach:</strong> <%= sach.tensach%><br>
+                        <strong>Ten tac gia:</strong> <span><%=sach.tacgia%></span><br>
+                        <strong>Nha xuat ban:</strong> <span><%=sach.nxb%></span><br>
+                        <strong>The loai:</strong> <span><%=sach.theloai%></span><br>
+                        <strong>So luong con: </strong> <span><%=sach.soluong%></span>
+                    </address>
+                    <h4><strong>Giá: </strong><%=sach.dongia%></h4>
+                         
+
+                </li>
+                <br>
+                
+            <% end %>  
+            <%= pagy_bootstrap_nav(@pagy).html_safe %>
+            <% end%>        
+            </ul>
+            <hr>          
+        </div>
+        
+    </div>
+    <div class="span2"></div>
+</section>

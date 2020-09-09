@@ -1,0 +1,9 @@
+<h3>Thong tin khach hang</h3>
+<% if @user.nil? || @user.empty?%>
+<p> Ban chua dang nhap, vui long dang nhap truoc khi xem thong tin</p>
+<% else%>
+<strong>Ho va ten: </strong><%@user.name%> 
+<strong>Ngay sinh: </strong><%@user.date_of_birth%>
+<strong>So dien thoai: </strong><%@user.phone_number%>
+<strong>Dia chi: </strong><%@user.address%>
+<%end%>

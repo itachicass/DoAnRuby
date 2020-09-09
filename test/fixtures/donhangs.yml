@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sohd: 1
+  makh: 1
+  ngaymua: 2020-08-06
+  thanhtoan: 1
+  tinhtrang: MyString
+  ghichu: MyString
+
+two:
+  sohd: 1
+  makh: 1
+  ngaymua: 2020-08-06
+  thanhtoan: 1
+  tinhtrang: MyString
+  ghichu: MyString
