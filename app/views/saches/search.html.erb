@@ -1,14 +1,7 @@
+<ul class="thumbnails listing-products" id=" productspace">
 
-<section class="main-content">
-
-    <div class="row" >  
-    <div class="span2"></div>
-    <div class="span8">    
-  
-   
-            <ul class="thumbnails listing-products" id=" productspace">
-            <%if @saches.nil? || @saches.empty?%>%
-            <p> Không có sản phẩm phù hợp</p>
+            <%if @saches.nil? || @saches.empty?%>
+             <p> Không có sản phẩm phù hợp</p>
             <%else%>
             <% @saches.each do |sach| %>
                 <li class="span8">
@@ -16,7 +9,7 @@
                         <span class="sale_tag"></span>
                         <div class="span4">
                         <%= link_to chitiet_path(id:sach.id) do %>
-                        <%= image_tag(sach.hinhanh, height: '250', width: '120') %>
+                        <%= image_tag(sach.hinhanh, height: '200', width: '100') %>
                         <% end%>
                         </div>
    
@@ -29,18 +22,14 @@
                         <strong>Số lượng còn: </strong> <span><%=sach.soluong%></span>
                     </address>
                     <h4><strong>Giá: </strong><%=sach.dongia%></h4>
-                         
 
                 </li>
                 <br>
                 
-            <% end %>  
+            <% end %> 
+            <br> 
             <%= pagy_bootstrap_nav(@pagy).html_safe %>
             <% end%>        
             </ul>
             <hr>          
         </div>
-        
-    </div>
-    <div class="span2"></div>
-</section>

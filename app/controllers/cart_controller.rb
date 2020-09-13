@@ -34,7 +34,7 @@ class CartController < ApplicationController
         # gh = struct.new(@id, "Co gai den tu the gioi oan hon")
         # session[:cart] << gh
         # #
-        @s = Book.find_by(id: params[:id])
+        @s = Book.find_by(id: params[:id].to_i)
             @s['soluong'] = 1
             struct = Struct.new(:id, :tensach, :hinhanh, :dongia, :soluong)
             sach = struct.new(@s.id, @s.tensach, @s.hinhanh, @s.dongia, 1)
@@ -42,27 +42,27 @@ class CartController < ApplicationController
             then           
             session[:tongtien] += @s.dongia
             session[:cart] << sach
-            flash[:notice] = "them vao gio thanh cong"
+            flash[:notice] = "Thêm vào giỏ thành công"
             
         else
             @check = 0;
             session[:cart].each do |sach|
-                if sach['id'] == params[:id]
+                if sach['id'] == params[:id].to_i
                     sach['soluong'] += 1
                     session[:tongtien] += sach['dongia']
-                    flash[:notice] = "them vao gio thanh cong"
+                    flash[:notice] = "Thêm vào giỏ thành công"
                     @check = 1;
                 end
             end
             if @check == 0
                 session[:tongtien] += @s.dongia
                 session[:cart] << sach
-                flash[:notice] = "them vao gio thanh cong"
+                flash[:notice] = "Thêm vào giỏ thành công"
             end
        
         end
         if @check == 0
-        flash[:notice] = "them vao gio khong thanh cong" 
+        flash[:notice] = "Thêm vào giỏ không thành công" 
         @cart = session[:cart]
         else
         redirect_to action: :load_cart

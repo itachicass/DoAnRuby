@@ -140,7 +140,7 @@ a:hover {
 
 .expanded #container {
     left: 100px;
-    transform: translate3d(50px, 0px, 0px) scale3d(1, 1, 1);
+    transform: translate3d(70px, 0px, 0px) scale3d(1, 1, 1);
 }
 
 .expanded #sidebar {
@@ -185,7 +185,7 @@ a:hover {
     position: relative;
     transform: translate3d(0px, 0px, 0px);
     transition: transform 500ms ease 0s;
-    width: 100%;
+    width: 200%;
 }
 
 .section {

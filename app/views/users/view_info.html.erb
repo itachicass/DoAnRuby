@@ -1,9 +1,11 @@
-<h3>Thong tin khach hang</h3>
-<% if @user.nil? || @user.empty?%>
-<p> Ban chua dang nhap, vui long dang nhap truoc khi xem thong tin</p>
-<% else%>
-<strong>Ho va ten: </strong><%@user.name%> 
-<strong>Ngay sinh: </strong><%@user.date_of_birth%>
-<strong>So dien thoai: </strong><%@user.phone_number%>
-<strong>Dia chi: </strong><%@user.address%>
-<%end%>
+<h3 align="center">Thông tin khách hàng</h3>
+<div class="row">
+<div class="span9"></div>
+<div class="span3">
+<strong>Họ và tên: </strong><%=current_user.name%> <br>
+<strong>Ngày sinh: </strong><%=current_user.date_of_birth%><br>
+<strong>Số điện thoại: </strong><%=current_user.phone_number%><br>
+<strong>Địa chỉ:</strong><%=current_user.address%>
+</div>
+
+</div>

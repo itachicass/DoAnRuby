@@ -1,42 +1,61 @@
 <div class="span1"></div>
 
-<h3>Gio hang cua ban</h3>
 
 <% if @cart.empty? %>
 
 <p>Khong co san pham nao trong gio</p>
 <%else%>
 
-
-<table >
-<tr>
-<td> Ten san pham </td>
-<td> Hinh hanh </td>
-<td> Don gia <td>
-<td> So luong </td>
-<td> Xem san pham </td>
-<td> Xoa khoi gio </td>
-</tr>
-
+<section class="main-content">
+    <div class="row">
+        <div class="span9">
+            <h3 class="title"><span class="text"><strong>Giỏ hàng</strong></span></h3>
+            <table class="table table-striped" style="background-color:white;">
+                <thead>
+                    <tr>
+                    <th>Tên sản phẩm</th>
+                        
+                        <th>Hình ảnh</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        
+                        <th>Thành tiền</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
 <% @cart.each do |sach| %>
     <tr>
          <td> <%= sach['tensach']%> </td>    
         <td><%= image_tag(sach['hinhanh'], height: '200', width: '100') %> </td>
         <td> <%=sach['dongia']%></td>
         <td><%= sach['soluong']%></td>
+        <td><%= sach['soluong']*sach['dongia']%></td>
         <td>
         <%= button_to "Xem", chitiet_path(sach['id']) , method: :get%>                                             
-        <%= button_to "Xoa", remove_from_cart_path(sach['id']), method: :delete %></td>
+        <%= button_to "Xóa", {action: "remove_from_cart", id: sach['id'], remote: true}, {class: 'btn btn-danger btn-sm'} %></td>
         
         
     </tr>
     <% end %> 
     <tr class='total_line'>
-    <td colspan='5'>Tong tri gia</td>
+    <td colspan='5'><strong>Tổng trị giá</strong></td>
     <td class='total_cell' colspan='2'><%= @total %></td>
 
 
 </table>
-<%= button_to "Dat hang", order_path, method: :get%>
+ <hr>
+            <p class="cart-total right">
+            </p>
+            <hr />
+            <p class="buttons right">
+<%= button_to "Đặt hàng", check_info_path, method: :get%>
 
 <% end%>
+</p>
+        </div>
+        <div class="span3 col">
+            
+        </div>
+    </div>
+</section>

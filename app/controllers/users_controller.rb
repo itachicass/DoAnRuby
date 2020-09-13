@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
+    before_action :authenticate_user!
     def view_infor
-        @user = User.find(current_user.id)
+        @user = User.where(id: current_user.id)
+    end
+
+    def check_info
+        
     end
 end

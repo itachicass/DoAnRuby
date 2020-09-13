@@ -21,54 +21,58 @@
 		<script src="/app/assets/javascripts/js/bootstrap.min.js"></script>				
 		<script src="/app/assets/javascripts/superfish.js"></script>	
 		<script src="/app/assets/javascripts/jquery.scrolltotop.js"></script>
-		<!--[if lt IE 9]>			
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-			<script src="/app/assets/javascripts/respond.min.js"></script>
-		<![endif]-->
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="/app/assets/javascripts/respond.min.js"></script>
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true%>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	</head>
     <body >	
-	<div class="container-fluid">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  </div>	
-		<div id="top-bar" class="container">
-			<div class="row" width=1100>
-				<div >
-					<form method="POST" class="search_form">
-						<input type="text" class="input-block-level search-query" Placeholder="eg. T-sirt" styles='text-color:black'>
-					</form>
+	
+		<div id="top-bar" class="col-lg-12">
+			<div class="row">
+				<div class="1
+				span8 pull-left ">
+					
+					<div style="display:flex; justi1
+					fy-content:flex-start; width:90%">
+						<input type="text" class="input-block-level search-query" Placeholder="Tìm kiếm ở đây" id="searchbar" style="background-color:white; color:black" name="search">
+                            <input type="button" value="Tìm kiếm" onClick="timkiem()" style="background-color:white; color:black"/>
+                        </div>
+
 				</div>
-				<div class="span12">
-					<div class="account pull-right">
+				<div class="pull-right">
+					<div class="account">
 						<ul class="user-menu">				
-							<li><%= link_to "Trang chu", root_path%></li>
-							<li><%= link_to "Xem gio hang", view_cart_path%></li>
+							<li><%= link_to "Trang chủ", root_path%></li>
+							<li><%= link_to "Xem giỏ hàng", view_cart_path%></li>
 							<% if user_signed_in? %>
-							<li><%= link_to "Xem don hang hang", view_orders_path%></li>				
-							<li><%= link_to "Thong tin tai khoan", view_info_path%></li>
-							<li><%= link_to "Log Out", signout_path, :method => :get %></li>
+							<li><%= link_to "Xem đơn hàng", view_orders_path%></li>				
+							<li><%= link_to "Thông tin tài khoản", view_info_path%></li>
+							<li><%= link_to "Đăng xuất", signout_path, :method => :get %></li>
 							<%else%>
-							<li><%= link_to "Dang nhap", "users/sign_in"%></li>
-							<li><%= link_to "Dang ky", "users/sign_up"%></li>
+							<li><%= link_to "Đăng nhập", "users/sign_in"%></li>
+							<li><%= link_to "Đăng ký", "users/sign_up"%></li>
 							<%end%>
+							<li><%= link_to "Thông tin liên hệ", view_cart_path%></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		
 		<div id="wrapper" class="container">
 			<section class="navbar main-menu">
-				<div class="navbar-inner main-menu">				
-					<a href="index.html" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a>
+				<div class="navbar-inner main-menu">	
+					<%= link_to image_tag("logof.png", style:'height:3vw;width:12vw;margin-left:5vw;'), :action => 'index', :controller => 'saches', :class => 'site_logo'%>
+				
 					<nav id="menu" class="pull-right">
 						<ul>									
-							<li><%= link_to "The loai", root_path%></li>
-								
-							<li><%= link_to "Tac gia", root_path%></li>
-								
-							<li><%= link_to "Nha xuat ban", root_path%></li>
+							<li><%= link_to "Sách tham khảo/ Sách giáo khoa", search_path('Sách tham khảo/ Sách giáo khoa')%></li>
+							<li><%= link_to "Tiểu thuyết", search_path('Tiểu thuyết')%></li>
+							<li><%= link_to "Truyên tranh", search_path('Truyen tranh')%></li>
+							<li><%= link_to "Tâm lý học/ Kỹ năng sống", search_path('Tâm lý học/ Kỹ năng sống')%></li>
+							<li><%= link_to "Kinh tế - Chính trị", search_path('Kinh tế - Chính trị')%></li>
 							
 						</ul>
 					</nav>
@@ -89,6 +93,10 @@
                         </li>
                     </ul>
                 </div>
+				<div class="container-fluid">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>	
 			</section>
 			<%= yield %>
 			<section id="footer-bar">
@@ -97,20 +105,19 @@
 					<div class="span3">
 						<h4>Navigation</h4>
 						<ul class="nav">
-							<li><a href="./index.html">Homepage</a></li>  
-							<li><a href="./about.html">About Us</a></li>
-							<li><a href="./contact.html">Contac Us</a></li>
-							<li><a href="./cart.html">Your Cart</a></li>
-							<li><a href="./register.html">Login</a></li>							
+							<li><%= link_to "Trang chủ", root_path%></li> 
+							<li><%= link_to "Giới thiệu", root_path%></li>
+							
+							<li><%= link_to "Thông tin đơn hàng", root_path%></li>
+														
 						</ul>					
 					</div>
 					<div class="span4">
 						<h4>My Account</h4>
 						<ul class="nav">
-							<li><a href="#">My Account</a></li>
-							<li><a href="#">Order History</a></li>
-							<li><a href="#">Wish List</a></li>
-							<li><a href="#">Newsletter</a></li>
+							<li><%= link_to "Thông tin tài khoản", view_info_path%></li>
+							<li><%= link_to "Lịch sử mua hàng", root_path%></li>
+							
 						</ul>
 					</div>
 					<div class="span4">
@@ -126,12 +133,16 @@
 					</div>					
 				</div>	
 			</section>
-			<section id="copyright">
-				<span>Copyright 2013 bootstrappage template  All right reserved.</span>
-			</section>
+			
 		</div>
 		<script src="themes/js/common.js"></script>
 		<script src="themes/js/jquery.flexslider-min.js"></script>
+		<script>
+			function timkiem(){
+				var text = document.getElementById("searchbar").value
+				window.location.assign("/saches/search/" + text)
+			}
+		</script>
 		<script type="text/javascript">
 			$(function() {
 				$(document).ready(function() {

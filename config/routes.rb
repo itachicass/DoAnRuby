@@ -17,11 +17,14 @@ Rails.application.routes.draw do
 
 get 'saches/:id', to: 'saches#show', as:"chitiet"
 get 'saches/index' => 'saches#index'
-get 'dathang/dathang' => 'donhang#order', as: "order" 
+get 'saches/search/:text' => 'saches#search', as: "search"
+post 'dathang/dathang' => 'donhang#order', as: "order" 
 get 'dathang/dathangngay/:id',to: 'donhang#create', as: "order_now" 
 get 'cart/index' => 'cart#load_cart' , as: "view_cart"
 get 'cart/add_to_cart/:id', to: 'cart#add_to_cart', as: 'add_to_cart'
 delete 'cart/remove_from_cart/:id', to: 'cart#remove_from_cart', as: 'remove_from_cart'
 get 'users/view_orders', to: 'donhang#view_oders', as: 'view_orders'
 get 'users/view_info', to: 'users#view_info', as: 'view_info'
+get 'users/check_info', to: 'users#check_info', as: 'check_info'
+get 'saches/index' => 'devise/saches#index'
 end

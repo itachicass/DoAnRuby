@@ -83,7 +83,7 @@
 @media (max-width: 979px) and (min-width: 768px) {
 
     .navbar .container {
-        width: 724px!important;
+        width: 100%!important;
     }
 
 }
